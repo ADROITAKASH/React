@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import './App.css';
-import { CardList } from "./Components/cards-list/card-list.component";
+import React, { Component } from "react";
+import "./App.css";
+import CardList from "./Components/cards-list/card-list";
 
 class App extends Component {
   constructor() {
     super();
+    this.onSearchHandler = this.onSearchHandler.bind(this);
     this.state = {
       booktub: [],
-      search: 'search + terms',
+      search: "Harry Potter",
       // url: `https://www.googleapis.com/books/v1/volumes?q=`,
       // hi: this.state.search
       // search+ terms
@@ -16,23 +17,42 @@ class App extends Component {
 
   componentDidMount() {
     fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}`)
-      .then(response => response.json())
+      .then((response) => response.json())
       // .then(books => console.log(books.items))d
-      .then(books => this.setState({ booktub: books.items }))
-      .catch(console.log('not found'))
+      .then((books) => {
+        this.setState({ booktub: books.items });
+        console.log(this.state.booktub);
+      })
+      .catch(console.log("not found"));
+  }
+  onSearchHandler() {
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}`)
+      .then((response) => response.json())
+      // .then(books => console.log(books.items))d
+      .then((books) => this.setState({ booktub: books.items }))
+      .catch(console.log("not found"));
   }
 
   render() {
     return (
-      <div className='App'>
-        <input type='text' placeholder='search' onChange={result => this.setState({ search: result.target.value })}></input>
-        <button onClick={this.componentDidMount()} placeholder='Search' />
+      <div className="App">
+        <input
+          type="text"
+          placeholder="search"
+          value={this.state.search}
+          onChange={(result) => this.setState({ search: result.target.value })}
+        ></input>
+        <button
+          type="submit"
+          onClick={this.onSearchHandler}
+          placeholder="Search"
+        />
         {console.log(this.state.search)}
         {console.dir(this.state)}
         {console.log(this.state.url)}
         <CardList booktub={this.state.booktub}></CardList>
       </div>
-    )
+    );
   }
 }
 
