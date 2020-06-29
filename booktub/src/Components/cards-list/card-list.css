@@ -2,8 +2,19 @@
     width:80vm;
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr ;
-    grid-gap: 20px;
-    padding: 20px;
+    grid-gap: 50px;
+    padding: 10px;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-top: 10%;
+    /* backdrop-filter: blur(2px); */
+    /* background-color: #171717; */
+    background: linear-gradient(145deg, #171717, #1b1b1b);
+
+}
+.background{
+    background-image: url('https://image.freepik.com/free-vector/abstract-geometric-shapes-colorful-modern-pattern_38782-838.jpg');
+    
 }
 
 

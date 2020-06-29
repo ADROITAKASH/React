@@ -1,17 +1,33 @@
 .card-container {
   display: flex;
   flex-direction: column;
-  background-color: #d3e6e6;
-  border: 1px solid grey;
+  /* background-color: #f4f4f4; */
+  /* border: 1px solid grey; */
   border-radius: 5px;
   padding: 25px;
   cursor: pointer;
+  font-size: 10px;
+  font-family:  monospace;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
+  border-radius: 26px;
+  width: 75%;
+  color: #ffffff;
+  
+  
+background: linear-gradient(145deg, #171717, #1b1b1b);
+box-shadow:  18px 18px 64px #0b0b0b, 
+             -18px -18px 64px #272727;
+
 }
 
 .card-container:hover {
   transform: scale(1.05);
+/* background: linear-gradient(145deg, #20bba7, #39dfc7); */
+text-shadow: 0 0 32px #fd9a292c;
+color:#fd7f10;
+  box-shadow:  5px 5px 10px #fd7f10be , 
+              -5px -5px 10px #fd7f1086 ;
 }

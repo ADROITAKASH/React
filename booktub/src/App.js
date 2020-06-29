@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
+import Nav from "./Components/menu/menu";
+import SearchBar from "./Components/search/search-bar";
 import CardList from "./Components/cards-list/card-list";
 
 class App extends Component {
@@ -36,20 +38,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <input
+        {/* <input
           type="text"
           placeholder="search"
           value={this.state.search}
           onChange={(result) => this.setState({ search: result.target.value })}
-        ></input>
-        <button
+        ></input> */}
+        {/* <button
           type="submit"
           onClick={this.onSearchHandler}
           placeholder="Search"
-        />
-        {console.log(this.state.search)}
-        {console.dir(this.state)}
-        {console.log(this.state.url)}
+        /> */}
+        <Nav this={this}></Nav>
+        <SearchBar input={this.state.search} this={this}></SearchBar>
         <CardList booktub={this.state.booktub}></CardList>
       </div>
     );
@@ -57,85 +58,3 @@ class App extends Component {
 }
 
 export default App;
-
-// {
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-1'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-2'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-3'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-4'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-5'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-6'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-7'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-8'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-9'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-10'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-11'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-12'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-13'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-14'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-15'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-16'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-17'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-18'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-19'
-//   },
-//   {
-//     name: '20 naalil Js padipathu eppadi',
-//       id: 'bk-20'
-//   }}

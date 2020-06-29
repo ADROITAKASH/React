@@ -1,0 +1,126 @@
+.container {
+  position: absolute;
+  top: -3%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* margin: auto; */
+  width: 100%;
+  height: 200px;
+  background-color: #171717;
+}
+.search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background: #fd7f10;
+  border-radius: 50%;
+  z-index: 4;
+  /* box-shadow: 0 0 25px 0 rgba(0,0,0,0.4); */
+  transition: all 1s;
+  box-shadow: 0 0 20px 0 #fd7f10, 0 10px 20px 0 rgba(255, 0, 0, 0.2);
+  /* box-shadow: inset 18px 18px 58px #2cad9a, 
+            inset -18px -18px 58px #3ef3da; */
+}
+/* @keyframes pulse-grow {
+	 to {
+		 transform: scale(1.1);
+	}
+}
+ .pulse-grow {
+	 display: inline-block;
+	 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	 transform: translateZ(0);
+	 box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+ .pulse-grow:hover ,input:hover {
+	 animation-name: pulse-grow;
+	 animation-duration: 0.3s;
+	 animation-timing-function: linear;
+	 animation-iteration-count: infinite;
+	 animation-direction: alternate;
+} */
+.search:hover {
+  cursor: pointer;
+}
+.search:before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 30px;
+  right: 0;
+  bottom: 0;
+  left: 24px;
+  width: 20px;
+  height: 2px;
+  background: #fff;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+.search:after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  width: 25px;
+  height: 25px;
+  left: -5px;
+  right: 0;
+  bottom: 0;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+input {
+  font-family: monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: #fd7f10;
+  color: #fff;
+  padding: 0 80px 0 20px;
+  text-shadow: 0 0 10px #fd7f10;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 #fd7f10, 0 10px 25px 0 rgba(255, 0, 0, 0.2);
+  z-index: 5;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: all 1s;
+}
+input:hover {
+  cursor: pointer;
+}
+input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+input:focus ~ .search {
+  right: -250px;
+  background: #fff;
+  z-index: 8;
+}
+input:focus ~ .search:before {
+  background: #111;
+}
+input:focus ~ .search:after {
+  border: 4px solid #111;
+}
+input::placeholder {
+  color: #fff;
+  font-weight: bold;
+  opacity: 0.5;
+}
