@@ -5,9 +5,10 @@ function Nav(props) {
   return (
     <div className="position">
       <div
-        className="nav-icon"
-        // onClick={this.toggleClass}
-        // onClick={() => props.this.toggleClass("open")}
+        className={props.this.state.active ? "nav-icon open" : "nav-icon"}
+        onClick={() =>
+          props.this.setState({ active: !props.this.state.active })
+        }
       >
         <span></span>
         <span></span>
