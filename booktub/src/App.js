@@ -3,6 +3,7 @@ import "./App.css";
 import Nav from "./Components/menu/menu";
 import SearchBar from "./Components/search/search-bar";
 import CardList from "./Components/cards-list/card-list";
+import axios from "axios";
 
 class App extends Component {
   constructor() {
@@ -18,21 +19,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}`)
-      .then((response) => response.json())
-      // .then(books => console.log(books.items))d
+    axios
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}`)
+      // .then((response) => console.log(response))
       .then((books) => {
-        this.setState({ booktub: books.items });
+        // console.log("start");
+        // console.log(books.data);
+        this.setState({ booktub: books.data.items });
         console.log(this.state.booktub);
       })
-      .catch(console.log("not found"));
+      .catch((err) => console.log(err));
   }
   onSearchHandler() {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}`)
-      .then((response) => response.json())
-      // .then(books => console.log(books.items))d
-      .then((books) => this.setState({ booktub: books.items }))
-      .catch(console.log("not found"));
+    axios
+      .get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}`)
+      .then((books) => this.setState({ booktub: books.data.items }))
+      .catch((err) => console.log(err));
   }
 
   render() {
